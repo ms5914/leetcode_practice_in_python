@@ -12,6 +12,9 @@ class Solution:
             if nums[i] == nums[i + 1]:
                 return True
         return False;
+    
+        #Method 3 - One liner python wizardry
+        return len(set(nums)) < len(nums)
 
         
         
