@@ -6,6 +6,7 @@ class Node:
         self.neighbors = neighbors if neighbors is not None else []
 """
 
+#Both the DFS and BFS ways work
 from typing import Optional
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
