@@ -30,8 +30,6 @@ class Solution(object):
                 profit[i] = max(self.jobs[i][2], profit[i+1])
             else:
                 profit[i] = max(self.jobs[i][2]+profit[j], profit[i+1])
-                
-                
         return profit[0]
     
     #     Method 1 : Using memoization with recursion
