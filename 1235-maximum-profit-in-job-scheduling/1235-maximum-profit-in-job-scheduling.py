@@ -57,3 +57,6 @@ class Solution(object):
     #     max_profit= max(self.jobs[current][2]+self.find_max_profit(next_index,n), self.find_max_profit(current+1,n))
     #     return max_profit
     
+    
+    #heap based solution 
+   # https://leetcode.com/problems/maximum-profit-in-job-scheduling/discuss/2002347/Very-Clearly-Explained-Heap-Solution-in-Python-Easy-to-Understand!!!
