@@ -13,16 +13,30 @@ class Solution:
         if not node:
             return None
         
-        hm[node] = Node(node.val, [])
+        # hm[node] = Node(node.val, [])
         
-        def dfs(node, hm):
-            for neighbor in node.neighbors:
-                if not neighbor in hm:
-                    hm[neighbor] = Node(neighbor.val, [])
-                    dfs(neighbor, hm)
-                hm[node].neighbors.append(hm[neighbor])
+#         DFS solution
+#         def dfs(node, hm):
+#             for neighbor in node.neighbors:
+#                 if not neighbor in hm:
+#                     hm[neighbor] = Node(neighbor.val, [])
+#                     dfs(neighbor, hm)
+#                 hm[node].neighbors.append(hm[neighbor])
     
-        dfs(node, hm)  
+#         dfs(node, hm)  
+
+        #BFS Solution 
+        q = deque()
+        q.append(node)
+        hm[node] = Node(node.val, [])
+        while q:
+            root = q.pop()
+            for neighbor in root.neighbors:
+                if neighbor not in hm:
+                    hm[neighbor] = Node(neighbor.val, [])
+                    q.append(neighbor)
+                
+                hm[root].neighbors.append(hm[neighbor])
         return hm[node]
 
                     
