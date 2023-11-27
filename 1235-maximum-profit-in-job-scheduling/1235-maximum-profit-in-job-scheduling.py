@@ -2,6 +2,8 @@ import heapq
 class Solution(object):
     
     #Method 3 : Using heap and sorting
+    #heap based solution 
+   # https://leetcode.com/problems/maximum-profit-in-job-scheduling/discuss/2002347/Very-Clearly-Explained-Heap-Solution-in-Python-Easy-to-Understand!!!
     def jobScheduling(self, startTime, endTime, profit):
         jobs = list(zip(startTime, endTime, profit))
         jobs.sort(key = lambda x:x[0])
@@ -92,7 +94,6 @@ class Solution(object):
     #     return max_profit
     
     
-    #heap based solution 
-   # https://leetcode.com/problems/maximum-profit-in-job-scheduling/discuss/2002347/Very-Clearly-Explained-Heap-Solution-in-Python-Easy-to-Understand!!!
+
 
 
