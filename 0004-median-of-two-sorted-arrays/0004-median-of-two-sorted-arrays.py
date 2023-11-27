@@ -1,6 +1,6 @@
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        #The idea is to excecute binary search on the shorter array to figure out how many elements in the smaller array will be a part of lower half in the combined sorted array. 
+        #The idea is to excecute binary search on the smaller array to figure out how many elements in the smaller array will be a part of lower half in the combined sorted array. 
         
         #If you forget the explanation watch this video:
 # https://www.youtube.com/watch?app=desktop&v=q6IEA26hvXc&ab_channel=NeetCode
@@ -42,6 +42,7 @@ class Solution:
         
         
                 
+        #T.C = O(log(min(m,n))) #since we are executing binary search on shorter array. 
             
             
         
