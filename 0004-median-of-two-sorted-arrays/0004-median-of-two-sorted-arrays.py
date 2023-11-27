@@ -9,7 +9,7 @@ class Solution:
         r = len(A)-1
         total = len(A)+len(B)
         
-        while True:
+        while l<=r+1:
             a_left_index = r+(l-r)//2
             b_left_index = (total//2)-a_left_index-2
             
@@ -28,6 +28,8 @@ class Solution:
                 l = a_left_index+1
             else:
                 r = a_left_index-1
+        
+        
                 
             
             
