@@ -16,7 +16,7 @@ class Solution:
         r = len(A)-1
         total = len(A)+len(B)
         
-        while l<=r+1: #Do it till while True to avoid confusion : Since median is bound to exist somewhere. 
+        while l<=r+1: #Do it till while True to avoid confusion if you are confused why r+1 : Since median is bound to exist somewhere. 
             print(l,r)
             a_left_index = r+(l-r)//2 #Assume array till this index in A will be a part of lower half in the combined sorted array
             b_left_index = (total//2)-a_left_index-2 #based on total count of numbers we know how many elements should be there in lower half so rest of elements will be from B array.
