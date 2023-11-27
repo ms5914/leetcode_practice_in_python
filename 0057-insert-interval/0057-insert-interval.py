@@ -1,20 +1,24 @@
 class Solution:
-    def insert(self, intervals: List[List[int]], new_interval: List[int]) -> List[List[int]]:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         result = []
-        is_inserted = False
+        new_interval = newInterval
+        added = False
         for interval in intervals:
-            if new_interval[1]<interval[0]:
-                if not is_inserted:
-                    is_inserted= True
+            if interval[1]<new_interval[0]:
+                result.append(interval)
+            elif interval[0]>new_interval[1]:
+                if not added:
+                    added = True
                     result.append(new_interval)
                 result.append(interval)
-            elif interval[1]<new_interval[0]:
-                result.append(interval)
             else:
-                new_interval[0] = min(interval[0], new_interval[0])
-                new_interval[1] = max(interval[1], new_interval[1])
+                new_interval = [min(interval[0], new_interval[0]), max(interval[1], new_interval[1])]
+                
             
-        if not is_inserted:
+        if not added:
             result.append(new_interval)
-        
+            
         return result
+                
+            
+        
