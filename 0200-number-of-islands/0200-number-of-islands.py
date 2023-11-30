@@ -14,7 +14,7 @@ class Solution:
                     new_j = j+dy[k]
                     if new_i>=0 and new_i<m and new_j>=0 and new_j<n and grid[new_i][new_j] == "1":
                         q.append((new_i, new_j))
-                        grid[new_i][new_j]="0" #set visited here to avoid duplicates and TLE
+                        grid[new_i][new_j]="0" #set visited/0 here to avoid duplicates and TLE
                         
         for i in range(m):
             for j in range(n):
