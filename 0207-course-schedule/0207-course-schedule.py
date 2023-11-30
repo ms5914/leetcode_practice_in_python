@@ -28,6 +28,10 @@ class Solution:
                     dq.append(course)
         
         return len(visited) == numCourses
+    
+    
+    
+    #https://leetcode.com/problems/course-schedule/discuss/441722/Python-99-time-and-100-space.-Collection-of-solutions-with-explanation
             
             
             
