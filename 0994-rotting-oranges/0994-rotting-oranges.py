@@ -13,6 +13,7 @@ class Solution:
                     q.append([i,j,0])
                 elif grid[i][j] == 1:
                     fresh_count+=1
+                    #To determine in the end that all fresh oranges have indeed become rotten. If all are not rotten we need to return -1. 
                     
         while q:
             i,j,minutes = q.popleft()
