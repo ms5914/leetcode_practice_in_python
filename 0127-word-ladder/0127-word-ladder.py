@@ -3,6 +3,7 @@ class Solution:
         
         reachable = defaultdict(list)
         
+# This was a bad approach, because for finding out neighbors we were double iterating the wordlist. See the double loop commented further down
 #         def is_reachable(word1, word2):
 #             if len(word1) != len(word2):
 #                 return False
@@ -18,9 +19,11 @@ class Solution:
         
         for word in wordList:
             for j in range(len(word)):
+                
+                #Instead make generic key for every word. 
                 reachable[word[:j]+"*"+word[j+1:]].append(word)
         
-                
+            #Bad approach    
             # for j in range(i+1, len(wordList)):
             #     if is_reachable(wordList[i], wordList[j]):
             #         reachable[wordList[i]].append(wordList[j])
