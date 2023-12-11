@@ -36,6 +36,8 @@ class Solution:
     
     #Solution 2
     #Using disjoint sets
+    #Assume that each account (not email) is a component and the parent is nothing but the index of that account in the given list and now based on if an account has a common email i.e an account has already a group assigned to it, you need to merge those components (union call for disjoint sets)
+    # Once all the components are ready, create a map which has root and all it's associated emails, the root can then be used to actual find the name in the accounts list (initially given)
     
     def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
         n = len(accounts)
@@ -62,14 +64,6 @@ class Solution:
             result.append(row)
         
         return result
-            
-            
-                    
-                    
-                    
-                
-                
-                
     
 class DU:
     def __init__(self,n):
