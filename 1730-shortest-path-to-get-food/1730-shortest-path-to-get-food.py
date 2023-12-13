@@ -26,7 +26,7 @@ class Solution:
                 for k in range(len(dx)):
                     new_i = i+dx[k]
                     new_j = j+dy[k]
-                    if new_i >= 0 and new_i<m and new_j>=0 and new_j<n and not (new_i, new_j) in visited and grid[new_i][new_j]!="X":
+                    if new_i >= 0 and new_i<m and new_j>=0 and new_j<n and not (new_i, new_j) in visited and grid[new_i][new_j]!="X":  #You had done a mistake here. You just checked if the cell is 0 but you should be able to reach #. Just the check what the cell can't be i.e X
                         visited.add((new_i, new_j))
                         q.append((new_i, new_j, steps+1))
         return -1
