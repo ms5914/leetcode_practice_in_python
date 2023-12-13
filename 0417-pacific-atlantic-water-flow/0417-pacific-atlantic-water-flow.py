@@ -3,6 +3,11 @@ class Solution:
         m = len(heights)
         n = len(heights[0])
         
+        #Multi source bfs problem
+        #Do bfs twice - once for atlantic once for pacific. Using the 1st row  and 1st col cells as starts for pacific and last row last column elements as starts for atlantic and maintain a visited set for both. 
+        #The intersection of these two will form the result for this problem. 
+        
+        
         pacific = [[False for i in range(m)] for j in range(n)]
         atlantic = [[False for i in range(m)] for j in range(n)]
         result = []
@@ -10,8 +15,10 @@ class Solution:
         pacific_visited = set()
         atlantic_visited = set()
         
-        def bfs(visited, ocean):
+        def bfs(visited, ocean): 
             q = deque()
+            
+            #Alternatively, Instead of below if else, you could also just the input the queue that we need to use. 
             if ocean == "pacific":
                 for i in range(m):
                     q.append((i,0))
