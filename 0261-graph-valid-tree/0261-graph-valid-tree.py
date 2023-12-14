@@ -31,6 +31,7 @@ class Solution:
         # N-1 edges csn be checked easilt in the beginning , for fully connected just do a DFS/BFS and check then length of visited set
         
         
+        
         #2. Union find -> same logic as above, we can check the number of edges easily. For connected components, starightforward way is to see that there is only one component. However we can stop early. If any find operation doesn't lead to a new merge, that means there's an edge that is repeated. i.e two vertices already had some path (they are in same set) and we are adding an edge that is creating one more path between them so this isn't a valid tree.   
         
             
