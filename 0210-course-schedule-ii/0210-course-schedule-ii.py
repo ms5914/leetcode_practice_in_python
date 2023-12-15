@@ -6,7 +6,7 @@ class Solution:
         
         adjList = defaultdict(list)
         in_edges = defaultdict(int)
-        for course in range(numCourses):
+        for course in range(numCourses):                #You forgot this and missed out on edge case. For ex. there are no depedencies. Then in_edges should be explicitly set zero
             in_edges[course] = 0
             
         
@@ -16,7 +16,7 @@ class Solution:
         
         
         q = deque()
-        for course in range(numCourses):
+        for course in range(numCourses):                    #You should loop for all possible courses and not just the adjacency list
             if in_edges[course] == 0:
                 q.append(course)
         
