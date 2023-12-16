@@ -1,6 +1,6 @@
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        #Direct application of topological sorting Kahn's algorithm
+        #Solution 1: Direct application of topological sorting Kahn's algorithm
         
         
         
@@ -72,6 +72,11 @@ class Solution:
                     return []
 
         return result[::-1]
+    
+    
+    #Detecting cycles in directed and undirected graphs is different:
+    #1. In undirected graphs: a normal check for whether a neighbor has already been visited will suffice
+    #2. In directed graph you have to check whether you are back to a parent node that you are currently still exploring. This question uses that approach. 
         
         
             
