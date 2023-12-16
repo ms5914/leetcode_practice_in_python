@@ -1,18 +1,11 @@
 class Solution:
     def minKnightMoves(self, x: int, y: int) -> int:
-        
         if x ==0 and y==0: #This base case is important
             return 0
         
-        @lru_cache(maxsize=None)
-        def dfs(x,y):
-            if x == 0 and y ==0:
-                return 0
-            elif x+y == 2: #(1,1),  (0,2), (2,0) 
-                return 2
-            else:
-                return min(dfs(abs(x-1), abs(y-2)), dfs(abs(x-2), abs(y-1)))+1
-        return dfs(abs(x),abs(y))
+
+        
+       
         
         #Solution 1 : Straightforward BFS
 #         visited = set()
@@ -80,6 +73,18 @@ class Solution:
 
 #Solution 3 : 
 #DFS (recursion)
+
+        @lru_cache(maxsize=None)
+        def dfs(x,y):
+            if x == 0 and y ==0:
+                return 0
+            elif x+y == 2: #(1,1),  (0,2), (2,0) 
+                return 2
+            else:
+                return min(dfs(abs(x-1), abs(y-2)), dfs(abs(x-2), abs(y-1)))+1
+        return dfs(abs(x),abs(y))
+
+
 
     
         
