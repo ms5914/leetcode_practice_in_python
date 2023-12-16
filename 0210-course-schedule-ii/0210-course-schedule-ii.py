@@ -77,6 +77,8 @@ class Solution:
     #Detecting cycles in directed and undirected graphs is different:
     #1. In undirected graphs: a normal check for whether a neighbor has already been visited will suffice
     #2. In directed graph you have to check whether you are back to a parent node that you are currently still exploring. This question uses that approach. 
+    #3. There is a difference between visited and exploring. Exploring means you are still in the same hierarchy. Visited can be from a different hierarchy. Visiting a node already doesn't necessarily mean a loop in directed graph
+    #4, Ex. (1,2) (1,3) (3,2) : This is a loop in undirected graph but not in directed graph
         
         
             
