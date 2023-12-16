@@ -71,9 +71,8 @@ class Solution:
                 if has_cycle:
                     return []
 
-        if len(result) == numCourses:
-            return result[::-1]
-        else: return []
+        return result[::-1]
+        
         
             
         
