@@ -8,6 +8,8 @@ class Solution:
         dx = [1, -1, 0, 0]
         dy = [0, 0, 1, -1]
         
+        visited = set()
+        
         @lru_cache(maxsize=None)
         def dfs(i,j):
             visited.add((i,j))
@@ -23,11 +25,7 @@ class Solution:
         ans = 1
         for i in range(m):
             for j in range(n):
-                visited=set()
-                print(i,j)
-                a = dfs(i,j)
-                print(a)
-                ans = max(ans, a)
+                ans = max(ans, dfs(i,j))
                 
         
         return ans
