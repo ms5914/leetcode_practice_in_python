@@ -43,6 +43,8 @@ class Solution:
             node = root.children[letter]
             if node.word:
                 result.append(node.word)
+                
+                #Once we put this word in the result we need to unmark it so that we don't add it again and again. 
                 node.word = False
 
             visited.add((i,j))
@@ -52,7 +54,9 @@ class Solution:
                 if new_i>=0 and new_i<m and new_j>=0 and new_j<n and not (new_i, new_j) in visited and board[new_i][new_j] in node.children:
                     dfs(new_i, new_j, node)
             visited.remove((i,j))
-
+            
+            
+            #This is an additional optimization: If we reached a node it's better to delete it from it's parent if it doesn;t have anymore children
             if not node.children:
                 root.children.pop(letter)
 
