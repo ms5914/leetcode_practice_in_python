@@ -5,7 +5,7 @@ class Solution:
         adjList = defaultdict(set)
         inEdges = defaultdict(int)
         
-        inEdges = {c : 0 for word in words for c in word} #Remember to onitialize this for all letters in a word in words. 
+        inEdges = {c : 0 for word in words for c in word} #Remember to initialize this for all letters in a word in words. 
         
         
         #for every neighboring word, deduce dependencies. Find the first different letter at an index in every adjacent word, that will give us the dependency. 
