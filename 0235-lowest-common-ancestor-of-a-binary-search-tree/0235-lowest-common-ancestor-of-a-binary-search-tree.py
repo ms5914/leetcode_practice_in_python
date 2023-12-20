@@ -25,6 +25,7 @@ class Solution:
                 return root
             return left or right   
         
+        #This one uses the ordering present in a BST
         def findLCA_bst(root, p, q):
             if not root:
                 return None
