@@ -16,9 +16,7 @@ class Solution:
             right = findLCA(root.right, p, q)
             if left and right:
                 return root
-            return left or right
-            return None
-            
+            return left or right   
         res = findLCA(root, p, q)
         return res
     
