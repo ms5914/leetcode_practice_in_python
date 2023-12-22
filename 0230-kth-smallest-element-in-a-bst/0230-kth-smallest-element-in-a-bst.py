@@ -9,17 +9,19 @@ class Solution:
         count = -1
         target = k-1
         elem = -1
+        found = False
         
         def findksmallest(root):
             nonlocal elem
             nonlocal count
-            if not root:
+            nonlocal found
+            if not root or found:
                 return 
             findksmallest(root.left)
             count+=1
             if count == target:
                 elem = root.val
-                return
+                found = True
             findksmallest(root.right)
         
         findksmallest(root)
