@@ -15,14 +15,12 @@ class Solution:
             nonlocal count
             if not root:
                 return 
-            if findksmallest(root.left) == -1:
-                return
+            findksmallest(root.left)
             count+=1
             if count == target:
                 elem = root.val
-                return -1
-            if findksmallest(root.right) == -1:
-                return 
+                return
+            findksmallest(root.right)
         
         findksmallest(root)
         return elem
