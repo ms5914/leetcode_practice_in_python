@@ -13,10 +13,9 @@ class Solution:
             if not root.left and not root.right:
                 return root
             
-            left_node = root.left
-            right_node = root.right
-            root.left = invert(right_node)
-            root.right = invert(left_node)
+            temp = root.left
+            root.left = invert(root.right)
+            root.right = invert(temp)
             return root
 
         return invert(root)
