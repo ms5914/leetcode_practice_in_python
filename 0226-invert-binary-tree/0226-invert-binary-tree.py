@@ -10,8 +10,8 @@ class Solution:
         def invert(root):
             if not root:
                 return None
-            # if not root.left and not root.right:
-            #     return root
+            if not root.left and not root.right:
+                return root
             
             temp = root.left
             root.left = invert(root.right)
