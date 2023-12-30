@@ -7,6 +7,8 @@
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         
+        
+        #Use the same recurson to find the height of subtrees and whether they are valid or not
         def check_balanced(root):
             if not root:
                 return True, 0
