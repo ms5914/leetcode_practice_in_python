@@ -11,6 +11,7 @@ class Solution:
         found=False
         prev = None
         
+        #Optimization
         #If there's a right child of predecessor node p -> then the left most child of p.right is the answer (if p.right doesn't have a child, then p.right itself is the answer)
         if p.right:
             temp = p.right
