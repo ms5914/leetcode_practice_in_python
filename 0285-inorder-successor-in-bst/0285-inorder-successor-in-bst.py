@@ -7,6 +7,10 @@
 
 class Solution:
     def inorderSuccessor(self, root: TreeNode, p: TreeNode) -> Optional[TreeNode]:
+    
+    
+    
+    # Solution 2: Only for BST
         successor = None
         current = root
         while current:
@@ -20,7 +24,7 @@ class Solution:
         
         
         
-# Solution 2: Only for BST
+
 
         
         
