@@ -10,13 +10,14 @@ class Solution:
         if not nums:
             return None
         
-        def setNodes(nums):
-            if not nums:
+        def setNodes(start, end):
+            if not nums or end>=len(nums) or start<0 or end<start:
                 return None
-            root = TreeNode(val=nums[len(nums)//2])
-            root.left = setNodes(nums[0:len(nums)//2])
-            root.right = setNodes(nums[len(nums)//2+1:])
+            mid = start+(end-start)//2
+            root = TreeNode(val=nums[mid])
+            root.left = setNodes(start, mid-1)
+            root.right = setNodes(mid+1, end)
             return root
         
-        return setNodes(nums)
+        return setNodes(0, len(nums)-1)
         
