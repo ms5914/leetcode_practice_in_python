@@ -32,13 +32,3 @@ class Solution:
             return result_node
         else:
             return None
-
-        
-        
-        
-                
-                
-                
-                
-            
-        
