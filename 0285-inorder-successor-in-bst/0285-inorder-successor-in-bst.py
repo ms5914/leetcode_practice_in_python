@@ -18,9 +18,10 @@ class Solution:
                 return
             if root is not None:
                 in_order(root.left)
-                if prev is not None and prev.val == p.val and not found:
+                if prev is not None and prev.val == p.val and not found: #you forgot "and not found" here. Because this part may still execute even if you have found the node in left subtree and then it will again use the same prev / the other alternative is to update the prev even if you have found the desired prev
                     result_node = root
                     found = True
+                    #prev = root This is required if you are not using " and not found"
                     return
                 prev = root
                 in_order(root.right)
