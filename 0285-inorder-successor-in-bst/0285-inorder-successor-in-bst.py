@@ -14,12 +14,13 @@ class Solution:
             nonlocal result_node
             nonlocal found
             nonlocal prev
+            if found:
+                return
             if root is not None:
                 in_order(root.left)
-                if prev is not None and prev.val == p.val:
+                if prev is not None and prev.val == p.val and not found:
                     result_node = root
                     found = True
-                    prev = root
                     return
                 prev = root
                 in_order(root.right)
