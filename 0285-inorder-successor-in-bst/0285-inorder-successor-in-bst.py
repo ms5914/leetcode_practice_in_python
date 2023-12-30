@@ -15,10 +15,10 @@ class Solution:
         current = root
         while current:
             if current.val > p.val:
-                successor = current
+                successor = current #Possible successsor. Dig further left
                 current = current.left
             else:
-                current = current.right
+                current = current.right  # go right
         return successor
                 
         
