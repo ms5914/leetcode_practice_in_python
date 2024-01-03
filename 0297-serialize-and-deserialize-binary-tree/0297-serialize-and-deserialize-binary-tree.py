@@ -14,6 +14,7 @@ class Codec:
         :rtype: str
         """
         
+        #Solution 2 using dfs traversal string
         if not root:
             return ""
         li = []
@@ -29,7 +30,7 @@ class Codec:
     
             
         
-#         Solution 1: Using queue
+#         Solution 1: Using queue/bfs traversal string
 #         if not root:
 #             return ""
 #         q = deque()
@@ -57,6 +58,7 @@ class Codec:
         :rtype: TreeNode
         """
         
+        #Solution 2 using dfs traversal string
         if not data:
             return []
         
@@ -77,7 +79,7 @@ class Codec:
             
         
         
-#       Solution 1: Using queue
+#       Solution 1: Using queue/bfs traversal string
 #         if not data:
 #             return None
 #         data = data.split("#")
