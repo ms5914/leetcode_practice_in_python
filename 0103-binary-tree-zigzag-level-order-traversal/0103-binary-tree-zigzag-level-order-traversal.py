@@ -17,22 +17,30 @@ class Solution:
         ltr = True
         while q:
             q_len = len(q)
-            row = []
+            row = deque() #Make this as queue because now while creating a candidate row, we can either append to the left or to the right in O(1) time
             
-            for i in range(q_len):
-                node = q.popleft()
-                row.append(node.val)
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-                    
             if ltr:
                 ltr = False
-                result.append(row)
+                for i in range(q_len):
+                    node = q.popleft()
+                    row.append(node.val)
+                    if node.left:
+                        q.append(node.left)
+                    if node.right:
+                        q.append(node.right)
             else:
                 ltr = True
-                result.append(row[::-1])
+                for i in range(q_len):
+                    node = q.popleft()
+                    row.appendleft(node.val)
+                    if node.left:
+                        q.append(node.left)
+                    if node.right:
+                        q.append(node.right)
+                    
+            
+            result.append(row)
+            
         
         return result
                     
