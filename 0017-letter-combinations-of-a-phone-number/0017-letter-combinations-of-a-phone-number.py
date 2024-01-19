@@ -5,8 +5,6 @@ class Solution:
         if not digits:
             return result
         n  = len(digits)
-        
-        
         def find_combinations(candidate, index):
             if index == n:
                 result.append("".join(candidate))
@@ -18,3 +16,8 @@ class Solution:
         
         find_combinations([], 0)
         return result
+    
+    
+    #Time complexity: Max letters per digit = 4, if there are N digits, max combination = 4^N and for each combination we are joining the list and adding it to the result so TC: N*(4^N)
+    
+    #Space complexity = O(N) -> The depth of recursion and hashmap is O(1)
