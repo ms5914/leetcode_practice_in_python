@@ -44,7 +44,7 @@ class Solution:
         #TC : About O(N!) . We can place queen in N cols in first row, N-2 (Don't consider col used in prev row and any col directly left or right of it) cols in second row and so on. 
         # While it costs O(N^2) to build each valid solution , the amount of valid solutions S(N) doesn't grow as nearly as N!, so O(N! + S(N)*N^2) = O(N!)
         
-        #SC: O(N^2) tp stpre board state. result space is not counted
+        #SC: O(N^2) to store board state. result space is not counted
             
                 
         
