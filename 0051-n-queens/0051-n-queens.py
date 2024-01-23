@@ -2,6 +2,7 @@ class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:         
         li = [["." for _ in range(n)] for _ in range(n)]
         result = []
+        #Use these sets to store the current state. i.e which rows have a quuen, which diags have queen, and which cols have a queen. 
         main_diag = set()
         cols = set()
         rows = set()
@@ -13,8 +14,11 @@ class Solution:
             else:
                 for col_num in range(n):
                     if isValid(li,row_num,col_num):
-                        main_diagonal = col_num-row_num
-                        anti_diagonal = row_num+col_num
+                        
+                        #To compute the current diagonal number using row and col
+                        main_diagonal = col_num-row_num #top left to bottom right
+                        
+                        anti_diagonal = row_num+col_num #Top right to bottowm left
                         li[row_num][col_num]="Q"
                         rows.add(row_num)
                         cols.add(col_num)
