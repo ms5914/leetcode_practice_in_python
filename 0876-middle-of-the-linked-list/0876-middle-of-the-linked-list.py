@@ -25,6 +25,16 @@ class Solution:
             itr+=1
         return temp1
         
+        #Approach 2
+        #Use fast and slow pointers. Since fast pointer moves double the speed of slow pointer when fast pointers reaches the end, slow is on the mid
+        
+# class Solution:
+#     def middleNode(self, head):
+#         slow = fast = head
+#         while fast and fast.next:
+#             slow = slow.next
+#             fast = fast.next.next
+#         return slow
         
             
             
