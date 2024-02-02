@@ -54,15 +54,12 @@ class Solution:
                         result = result.next
                     mid = mid.next
             
-            while head:
+            if head:
                 result.next = head
-                result = result.next
-                head = head.next
             
-            while mid:
+            elif mid:
                 result.next = mid
-                result = result.next
-                mid = mid.next
+                
             
             return result_head
         
