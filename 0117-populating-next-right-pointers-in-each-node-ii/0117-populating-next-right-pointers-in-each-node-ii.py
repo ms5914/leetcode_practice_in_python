@@ -10,8 +10,13 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
-        parent = root
-        while parent:
+        
+        
+            
+            
+        def create_connections(parent):
+            if not parent:
+                return None
             dummy = Node(-1)
             current = dummy
             while parent:
@@ -22,8 +27,11 @@ class Solution:
                     current.next = parent.right
                     current = current.next
                 parent = parent.next
-            parent = dummy.next
+            create_connections(dummy.next)
+        
+        create_connections(root)
         return root
+            
                 
             
                 
