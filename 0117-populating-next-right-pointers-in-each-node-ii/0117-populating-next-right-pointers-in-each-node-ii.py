@@ -12,8 +12,7 @@ class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
         parent = root
         while parent:
-            dummy = Node(-1)
-            current = dummy
+            dummy = Node(-1); current = dummy
             while parent:
                 if parent.left:
                     current.next = parent.left; current = current.next
