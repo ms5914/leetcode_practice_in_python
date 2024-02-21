@@ -9,24 +9,46 @@ class Solution:
             while i < len(s):
                 ch = s[i]
                 if ch.isdigit():
+                    
+                    #Generate the number
                     number=number*10+int(ch)
                     i+=1
                     continue
                 elif ch in operators:
+                    
+                    #Add the previous numbers sign and digits
                     res+=sign*number
+                    
+                    #Change sign for next number
                     sign = 1 if ch == '+' else -1
+                    
+                    #Reset number to zero so that it can hold a new number
                     number = 0
                     i+=1
                 elif ch == '(':
+                    
+                    #Create new number and get end index of this expression inside bracket
                     number , ind = calculate_expr(s, i+1)
+                    
+                    #Set current index to this new index after the expression
                     i = ind+1
+                
                 elif ch == ')':
+                    
+                    #An expression has ended break and send results
                     break
+                    
                 elif ch == " ":
+                    
+                    #Do nothing
                     i+=1
                     continue
             
+            
+            #Generate final result, last number and its sign needs to be added
             res+=sign*number
+            
+            #return result of current expression and last index of this expression. Usually ')' or the len(s)
             return res, i
         
         return calculate_expr(s, 0)[0]
