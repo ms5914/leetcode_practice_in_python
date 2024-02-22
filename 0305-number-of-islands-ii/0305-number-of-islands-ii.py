@@ -33,6 +33,8 @@ class Udj:
         if c in self.mapp:
             return 
         else:
+            
+            #Just add it
             self.num_islands+=1
             self.mapp[c] = c
             dx = [1, -1, 0, 0]
@@ -42,6 +44,7 @@ class Udj:
                 c1_x = c[0]+dx[i]
                 c1_y = c[1]+dy[i]
                 
+                #Join with valid island neighbors now
                 if self.validate_neighbor_island(c1_x, c1_y):
                     c1 = (c1_x, c1_y)
                     self.join(c, c1)
@@ -50,6 +53,8 @@ class Udj:
         p1 = self.find(c1)
         p2 = self.find(c2)
         
+        
+        #if different parent, means combining to islands, hence reduce num_islands
         if p1!=p2:
             self.mapp[p1] = p2
             self.num_islands-=1
