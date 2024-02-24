@@ -1,14 +1,17 @@
 class Solution:
     def findMinArrowShots(self, points: List[List[int]]) -> int:
         points.sort(key=lambda v: (v[1],v[0]))
-        heap = []
+        prev = None
         result = 0
         for start, end in points:
-            if not heap:
+            if not prev:
                 result+=1
-                heap.append(end)
+                prev = end
             else:
-                if start>heap[0]:
-                    heap[0] = end
+                if start>prev:
+                    prev = end
                     result+=1
         return result
+    
+    
+    
