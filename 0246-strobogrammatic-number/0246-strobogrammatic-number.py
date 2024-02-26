@@ -7,13 +7,13 @@ class Solution:
         mapp['0'] = '0'
         mapp['1'] = '1'
         
-        for n in num:
-            if n not in mapp:
-                return False
+        # for n in num:
+        #     if n not in mapp:
+        #         return False
         
         for index,value in enumerate(num):
             complement = num[len(num)-1-index]
-            if value != mapp[complement]:
+            if value not in mapp or complement not in mapp or  value != mapp[complement]:
                 return False
         return True
         
