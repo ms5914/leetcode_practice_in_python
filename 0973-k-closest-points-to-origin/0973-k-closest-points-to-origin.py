@@ -23,8 +23,8 @@ class Solution:
         def quick_sort(A, p,r,k):
            
             if p<=r:
-                if p==r:
-                    return [pair for dist, pair in A[:p+1]]
+                # if p==r:
+                #     return [pair for dist, pair in A[:p+1]]
                 q = partition(A, p,r)
                 if q == k-1:
                     return [pair for dist, pair in A[:q+1]]
@@ -37,11 +37,9 @@ class Solution:
                 
             
         def partition(A, p, r):
-             
             rand_index = random.randint(p,r)
             A[rand_index], A[r] = A[r], A[rand_index]
-            
-            
+        
             start, i = p,p
             end = r
             while i<=end:
