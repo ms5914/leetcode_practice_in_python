@@ -13,42 +13,22 @@ class Codec:
         :type root: TreeNode
         :rtype: str
         """
-        
-        #Solution 2 using dfs traversal string
+        result = ""
         if not root:
             return ""
-        li = []
-        def dfs(node):
-            if not node:
-                li.append("None")
-                return
-            li.append(str(node.val))
-            dfs(node.left)
-            dfs(node.right)
-        dfs(root)
-        return "#".join(li)
-    
+        dq= deque()
+        dq.append(root)
+        while dq:
+            node = dq.popleft()
+            if node:
+                result+=str(node.val)+","
+                dq.append(node.left)
+                dq.append(node.right)
+            else:
+                result+="None,"
+        return result
             
-        
-#         Solution 1: Using queue/bfs traversal string
-#         if not root:
-#             return ""
-#         q = deque()
-#         q.append(root)
-#         encoded = []
-#         while q:
-#             node = q.popleft()
-#             if not node:
-#                 encoded.append("None")
-#             else:
-#                 encoded.append(str(node.val))
-#                 q.append(node.left)
-#                 q.append(node.right)
-        
-#         print(encoded)
-        
-#         return "#".join(encoded)
-                
+            
             
 
     def deserialize(self, data):
@@ -57,64 +37,33 @@ class Codec:
         :type data: str
         :rtype: TreeNode
         """
-        
-        #Solution 2 using dfs traversal string
+        print(data)
         if not data:
-            return []
+            return None
+        node_list = data[:len(data)].split(",")
         
-        li = data.split("#")
-        ind = 0
-        def dfs():
-            nonlocal ind
-            if li[ind] == "None":
-                return None
-            root = TreeNode(li[ind])
-            ind+=1
-            root.left = dfs()
-            ind+=1
-            root.right = dfs()
-            return root
-        res = dfs()
-        return res
+        dq = deque()
+        root = TreeNode(node_list[0])
+        dq.append(root)
+        
+        i = 1
+        while dq and i<len(node_list):
+            node = dq.popleft()
+            if node_list[i] != "None":
+                node.left = TreeNode(node_list[i])
+                dq.append(node.left)
+            i+=1
+            if i<len(node_list) and node_list[i] != "None":
+                node.right = TreeNode(node_list[i])
+                dq.append(node.right)
+            i+=1
+        return root
             
-        
-        
-#       Solution 1: Using queue/bfs traversal string
-#         if not data:
-#             return None
-#         data = data.split("#")
-#         print(data)
-#         if not data:
-#             return None
-#         else:
-#             q = deque()
-#             index = 0
-#             root = TreeNode(data[index])
-#             q.append(root)
-#             while q:
-#                 node = q.popleft()
-#                 if data[index+1] == "None":
-#                     node.left = None
-#                 else:
-#                     node.left = TreeNode(data[index+1])
-#                     q.append(node.left)
-                
-#                 if data[index+2] == "None":
-#                     node.right = None
-#                 else:
-#                     node.right = TreeNode(data[index+2])
-#                     q.append(node.right)
-#                 index+=2
             
-#             return root
                 
-                    
-                    
-                
-                
-                
-                
-                
+            
+            
+            
         
         
 
