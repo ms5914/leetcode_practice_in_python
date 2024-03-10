@@ -1,44 +1,53 @@
 class Solution:
     def alienOrder(self, words: List[str]) -> str:
-        size = len(words)
         
-        adjList = defaultdict(set)
-        inEdges = defaultdict(int)
+        word_map = defaultdict(set)
+        in_degree_count = defaultdict(int)
+        char_set = {c for word in words for c in word }
         
-        inEdges = {c : 0 for word in words for c in word} #Remember to initialize this for all letters in a word in words. 
-        
-        
-        #for every neighboring word, deduce dependencies. Find the first different letter at an index in every adjacent word, that will give us the dependency. 
-        for i in range(size-1):
-            j = 0
-            while j<len(words[i]) and j<len(words[i+1]) and words[i][j] == words[i+1][j]:
-                j+=1
-            if j<len(words[i]) and j<len(words[i+1]):
-                if not words[i+1][j] in adjList[words[i][j]]: 
-                    #Updates adj list and inEdges only if for a particular dependency hasn't been counted before.This is important to remember. 
-                    adjList[words[i][j]].add(words[i+1][j])
-                    inEdges[words[i+1][j]]+=1
             
-            elif len(words[i+1])<len(words[i]):
-                return ""  
-            #If the i+1 th word is a prefix of ith word, ordering is not possible. Remember this edge case.  
+        for word1, word2 in zip(words[:len(words)], words[1:]):
+            i1, i2 = 0, 0
+            while i1<len(word1) and i2<len(word2) and word1[i1] == word2[i2]:
+                i1+=1
+                i2+=1
+                continue
+                
+                
+            if i1<len(word1) and i2<len(word2):
+                if not word2[i2] in word_map[word1[i1]]:
+                    word_map[word1[i1]].add(word2[i2])
+            elif len(word1)>len(word2):
+                return ""
+        
+        for key, li in word_map.items():
+            for val in li:
+                in_degree_count[val]+=1
             
-        #It's a DAG and now we are just doing topological sort using Kahn's algo to find the lexicographical order in Alien dictionary
+        q  = deque()
+        for key in char_set:
+            if in_degree_count[key] == 0:
+                q.append(key)
+        
         result = []
-        q = deque([c for c in inEdges if inEdges[c]==0 ])
         while q:
-            elem = q.popleft()
-            result.append(elem)
-            for letter in adjList[elem]:
-                inEdges[letter]-=1
-                if inEdges[letter] == 0:
-                    q.append(letter)
-        
-        #We need to make sure that result has gotten all the letters otherwise there is a cycle. 
-        return "".join(result) if len(result) == len(inEdges) else ""
+            ch = q.popleft()
+            result.append(ch)
             
+            for nei in word_map[ch]:
+                in_degree_count[nei]-=1
+                if in_degree_count[nei] == 0:
+                    q.append(nei)
+        return "".join(result) if len(result) == len(char_set) else ""
+                
             
-        
-
-
+                
+                
+                
+            
+                
+                
+            
+                
+            
         
