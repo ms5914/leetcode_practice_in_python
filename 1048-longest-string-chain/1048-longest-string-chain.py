@@ -17,6 +17,7 @@ class Solution:
         
         words.sort(key=lambda v: len(v))
         
+        #Create a map of key = len of word , val = (word, max_possible sequence with this word so far)
         mapp = defaultdict(list)
         mapp[len(words[0])].append((words[0],1))
         result = 1
@@ -36,3 +37,13 @@ class Solution:
                 mapp[(curr_length)].append((value, 1))
                 
         return result
+    
+    #Lee's code very very efficient:
+        # def longestStrChain(self, words):
+        # dp = {}
+        # for w in sorted(words, key=len):
+        #     dp[w] = max(dp.get(w[:len(w)] + w[i + 1:], 0) + 1 )
+        # return max(dp.values())
+    
+    
+    
