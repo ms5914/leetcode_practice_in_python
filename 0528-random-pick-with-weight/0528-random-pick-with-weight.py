@@ -9,7 +9,7 @@ class Solution:
         self.w = w
 
     def pickIndex(self) -> int:
-        #Chhose a random index and find the corresponding bucket index. The width of the bucket is acting as the probability. 
+        #Choose a random index and find the corresponding bucket index. The width of the bucket is acting as the probability. 
         index = bisect.bisect_left(self.w,rnd.randint(1, self.w[len(self.w)-1]))
         return index
         
