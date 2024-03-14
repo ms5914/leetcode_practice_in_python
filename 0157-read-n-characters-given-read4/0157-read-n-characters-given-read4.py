@@ -21,23 +21,22 @@ class Solution:
         :rtype: The number of actual characters read (int)
         """
         count = 0
-        buff4=[''] * 4
+        
         ind = 0
+        
+        #Question doesn't make it clear but buffer is cyclical, so you need to keep track of how many chars you need to read and copy
+        buff4 = ['']*4
         while count<n:
             t = read4(buff4)
             if t == 0:
                 break
-            count+=t
-            i = 0
-            for ch in buff4:
+            for i in range(t):
                 buf[ind] = buff4[i]
-                i+=1
+                count+=1
                 ind+=1
-                
-        
-        end_index = min(n, count)
-        buf = buf[:end_index]
-        return  min(n, count)
+                if count == n:
+                    break
+        return count
             
             
             
