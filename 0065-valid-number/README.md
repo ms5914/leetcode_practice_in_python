@@ -56,3 +56,8 @@
 	<li><code>s</code> consists of only English letters (both uppercase and lowercase), digits (<code>0-9</code>), plus <code>'+'</code>, minus <code>'-'</code>, or dot <code>'.'</code>.</li>
 </ul>
 </div>
+
+https://leetcode.com/problems/valid-number/Figures/65/dfa.png
+
+
+
