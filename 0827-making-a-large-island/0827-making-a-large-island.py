@@ -18,9 +18,11 @@ class Solution:
                 self.parent_members[coord] = 1
             
             def find_parent(self, coord):
-                while self.parent[coord] != coord:
-                    coord = self.parent[coord]
-                return coord
+                coord1 = coord
+                while self.parent[coord1] != coord1:
+                    coord1 = self.parent[coord1]
+                self.parent[coord] = coord1
+                return coord1
             
             def union(self, coord1, coord2):
                 p1 = self.find_parent(coord1)
