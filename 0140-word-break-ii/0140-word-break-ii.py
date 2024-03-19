@@ -5,8 +5,7 @@ class Solution:
         result = []
         def find_sentences(i, sentence):
             if i == len(s):
-                sent = list(sentence)
-                result.append(" ".join(sent))
+                result.append(" ".join(sentence[:]))
             for k in range(i+1, len(s)+1):
                 if s[i:k] in wordDict:
                     print(s[i:k])
