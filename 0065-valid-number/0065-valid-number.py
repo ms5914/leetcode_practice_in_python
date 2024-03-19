@@ -31,4 +31,6 @@ class Solution(object):
             current_state = dfa[current_state][group]
         
         return current_state in [1, 4, 7]
-        
+
+
+#See this image for reference: https://leetcode.com/problems/valid-number/Figures/65/dfa.png
