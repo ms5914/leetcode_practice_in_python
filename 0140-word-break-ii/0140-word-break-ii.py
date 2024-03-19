@@ -3,21 +3,21 @@ class Solution:
         
         word_set = set(wordDict)
         result = []
-        def find_sentences(i, sentence):
+        
+        @lru_cache(maxsize=None)
+        def find_sentences(i):
             if i == len(s):
-                result.append(" ".join(sentence[:]))
+                return [[]]
+            result = []
             for k in range(i+1, len(s)+1):
                 if s[i:k] in wordDict:
-                    print(s[i:k])
-                    sentence.append(s[i:k])
-                    find_sentences(k, sentence)
-                    sentence.pop()
+                    for sentence in find_sentences(k):
+                        result.append([s[i:k]]+sentence)
+            return result
         
-        find_sentences(0,[])
-        return result
-        
-                
-                    
+        result_sentence = find_sentences(0)
+        return [" ".join(li) for li in result_sentence ]
+
                     
             
                 
