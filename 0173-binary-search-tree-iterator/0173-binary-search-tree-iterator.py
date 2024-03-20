@@ -32,6 +32,33 @@ class BSTIterator:
             return False
         return True
         
+#Solution 2: Emulate inorder using stack. The next element should always be on the top of the stack. After popping add the left most child of the right child of the popped element.
+# public class BSTIterator {
+
+#     private TreeNode visit;
+#     private Stack<TreeNode> stack;
+    
+#     public BSTIterator(TreeNode root) {
+#         visit = root;
+#         stack = new Stack();
+#     }
+
+#     public boolean hasNext() {
+#         return visit != null || !stack.empty();
+#     }
+
+#     public int next() {
+#         while (visit != null) {
+#             stack.push(visit);
+#             visit = visit.left;
+#         }
+#         TreeNode next = stack.pop();
+#         visit = next.right;
+#         return next.val;
+#     }
+# }
+
+
 
 
 # Your BSTIterator object will be instantiated and called as such:
