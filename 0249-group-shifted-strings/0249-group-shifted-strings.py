@@ -7,5 +7,4 @@ class Solution:
                 remainder = (ord(b)-ord(a)+26)%26
                 curr.append(remainder)
             mapp[tuple(curr)].append(string)
-        print(mapp)
         return list(mapp.values())
