@@ -44,3 +44,6 @@ Complexity
 
 Time: O(N)
 Space: O(N)
+
+![image](https://github.com/ms5914/leetcode_practice_in_python/assets/55366357/9d54cc8b-2133-4d9b-9273-8015ce69c920)
+
