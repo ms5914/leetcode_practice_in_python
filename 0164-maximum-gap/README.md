@@ -25,3 +25,22 @@
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 </div>
+
+
+SOUTION:
+
+
+Idea
+
+Suppose in our integer array N elements, the min value is min and the max value is max. Then the maximum gap will be greater or equal to ceiling[(max - min ) / (N - 1)].
+Let bucketSize = ceiling[(max - min ) / (N - 1)].
+We divide all numbers in the array into N buckets, each bucket has size of bucketSize, where i-th (zero-based index) bucket contains all numbers in range [min + i*bucketSize, min + (i+1)*bucketSize).
+Because maximum gap is always greater or equal to bucketSize so in each bucket, we only need to store max element and min element, skip middle elements (min < middle < max) in the same bucket.
+Finally, we only need to compare max number in current bucket and min number in next bucket to get the relatively large gap and find out which two bucket have the maximum gap.
+Example picture
+image
+
+Complexity
+
+Time: O(N)
+Space: O(N)
