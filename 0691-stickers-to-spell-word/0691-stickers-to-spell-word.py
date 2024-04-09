@@ -1,40 +1,24 @@
 class Solution:
     def minStickers(self, stickers: List[str], target: str) -> int:
-        result = self.dfs(stickers, target, 0, {})
-        return result if result != float("inf") else -1
-    
-    def dfs(self, stickers, target, idx, memo):
-        # if target is empty then we don't need to take any sticker
-        if target == "":
-            return 0
-        # if we've searched through all stickers and haven't completed the target
-        # then there is no solution
-        if idx == len(stickers):
-            return float("inf")
-
-        # lookup the answer in the cache
-        key = (idx, target)
-        if key in memo:
-            return memo[key]
+        n = len(target)
+        total_number_to_represent_target = pow(2,n)
+        dp = [float('inf') for i in range(total_number_to_represent_target)]
+        # no characters required to represent empty string
+        dp[0] = 0
         
-        # choice 1 don't take the current sticker
-        result = self.dfs(stickers, target, idx+1, memo)
-
-        # choice 2 try to take the current sticker
-        currentSticker = stickers[idx]
-        newTarget = target
-        somethingRemoved = False
-        for c in currentSticker:
-            idxToRemove = newTarget.find(c)
-            if idxToRemove != -1:
-                newTarget = newTarget[:idxToRemove] + newTarget[idxToRemove+1:]
-                somethingRemoved = True
-        
-        # only try this sticker again if we were able to remove something from
-        # the target string
-        if somethingRemoved:
-            result = min(result, 1 + self.dfs(stickers, newTarget, idx, memo))
-
-        # cache the result
-        memo[key] = result
-        return result
+        for i in range(total_number_to_represent_target):
+            # Start to explore paths from reachable states hence
+            if dp[i]==float('inf'):
+                # Its not reachable
+                continue
+            else:
+                for sticker in stickers:
+                    state = i
+                    for ch in sticker:
+                        for index,t in enumerate(target):
+                            if t==ch and not ((state >> index) & 1):
+                                state = state | (1<<index)
+                                break
+                    dp[state] = min(dp[state], dp[i]+1)
+            
+        return -1 if dp[total_number_to_represent_target-1]==float('inf') else dp[total_number_to_represent_target-1]
