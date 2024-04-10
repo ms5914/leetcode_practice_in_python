@@ -4,3 +4,4 @@ class Solution:
         while y:
             x, y = x ^ y, (x & y) << 1
         return bin(x)[2:]
+        
