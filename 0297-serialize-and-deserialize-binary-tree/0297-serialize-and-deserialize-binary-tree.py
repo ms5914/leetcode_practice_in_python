@@ -13,23 +13,24 @@ class Codec:
         :type root: TreeNode
         :rtype: str
         """
-        result = ""
+        result = []
         if not root:
             return ""
-        dq= deque()
-        dq.append(root)
-        while dq:
-            node = dq.popleft()
-            if node:
-                result+=str(node.val)+","
-                dq.append(node.left)
-                dq.append(node.right)
+        q = deque()
+        q.append(root)
+        while q:
+            root = q.popleft()
+            if not root:
+                result.append("None")
             else:
-                result+="None,"
-        return result
-            
-            
-            
+                result.append(str(root.val))
+                q.append(root.left)
+                q.append(root.right)
+        
+        return ",".join(result)
+    
+                
+        
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -38,33 +39,33 @@ class Codec:
         :rtype: TreeNode
         """
         print(data)
-        if not data:
+        values = data.split(",")
+        if not values or not data:
             return None
-        node_list = data[:len(data)].split(",")
-        
-        dq = deque()
-        root = TreeNode(node_list[0])
-        dq.append(root)
+        root = TreeNode(int(values[0]))
+        q = deque()
+        q.append(root)
         
         i = 1
-        while dq and i<len(node_list):
-            node = dq.popleft()
-            if node_list[i] != "None":
-                node.left = TreeNode(node_list[i])
-                dq.append(node.left)
+        while q:
+            node = q.popleft()
+            if i<len(values) and values[i] != "None":
+                node.left = TreeNode(int(values[i]))
+                q.append(node.left)
+            else:
+                node.left = None
             i+=1
-            if i<len(node_list) and node_list[i] != "None":
-                node.right = TreeNode(node_list[i])
-                dq.append(node.right)
+            
+            if i<len(values) and values[i] != "None":
+                node.right = TreeNode(int(values[i]))
+                q.append(node.right)
+            else:
+                node.right = None
             i+=1
         return root
             
             
-                
             
-            
-            
-        
         
 
 # Your Codec object will be instantiated and called as such:
