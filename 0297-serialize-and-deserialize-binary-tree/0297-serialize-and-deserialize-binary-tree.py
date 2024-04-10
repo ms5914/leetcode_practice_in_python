@@ -38,10 +38,9 @@ class Codec:
         :type data: str
         :rtype: TreeNode
         """
-        print(data)
-        values = data.split(",")
-        if not values or not data:
+        if not data:
             return None
+        values = data.split(",")
         root = TreeNode(int(values[0]))
         q = deque()
         q.append(root)
