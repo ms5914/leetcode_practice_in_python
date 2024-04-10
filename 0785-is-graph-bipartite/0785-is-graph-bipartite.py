@@ -1,17 +1,21 @@
-class Solution(object):
+class Solution:
     def isBipartite(self, graph):
-        color = {}
-        for node in range(len(graph)):
-            if node not in color:
-                stack = [node]
-                color[node] = 0
-                while stack:
-                    node = stack.pop()
-                    for nei in graph[node]:
-                        if nei not in color:
-                            stack.append(nei)
-                            color[nei] = color[node] ^ 1
-                        elif color[nei] == color[node]:
+        """
+        :type graph: List[List[int]]
+        :rtype: bool
+        """
+        n, colored = len(graph), {}
+        for i in range(n):
+            if i not in colored and graph[i]:
+                colored[i] = 1
+                q = collections.deque([i])
+                while q:
+                    cur = q.popleft()
+                    for nb in graph[cur]:
+                        if nb not in colored:
+                            colored[nb] = -colored[cur]
+                            q.append(nb)
+                        elif colored[nb] == colored[cur]:
                             return False
         return True
         
