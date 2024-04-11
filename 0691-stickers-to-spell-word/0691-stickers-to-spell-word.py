@@ -1,7 +1,7 @@
 class Solution:
     def minStickers(self, stickers: List[str], target: str) -> int:
         n = len(target)
-        total_number_to_represent_target = pow(2,n)
+        total_number_to_represent_target = pow(2,n) #For n = 3 it's 0-7 i.e 8 numbers
         dp = [float('inf') for i in range(total_number_to_represent_target)]
         # no characters required to represent empty string
         dp[0] = 0
