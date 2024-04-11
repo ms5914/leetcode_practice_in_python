@@ -26,6 +26,10 @@ class Solution:
         
         
         reverse(i, len(nums)-1)
+
+# 1 2 4 3 5 4 1
+
+# 1 2 4 4 1 3 5
         
         
         
