@@ -22,3 +22,8 @@ class Solution:
                     dp[state] = min(dp[state], dp[i]+1)
             
         return -1 if dp[total_number_to_represent_target-1]==float('inf') else dp[total_number_to_represent_target-1]
+    
+    """
+    TC: O(2^T * S*T) T = num letters in target word, S: total num of letters in stickers
+SC: O(2^T) : Space used by dp
+    """
