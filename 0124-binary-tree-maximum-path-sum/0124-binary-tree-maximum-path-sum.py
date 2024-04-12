@@ -16,13 +16,13 @@ class Solution:
             nonlocal result
             left_sum, right_sum = 0,0
             if node.left:
-                left_sum = find_sum(node.left)
+                left_sum = max(0,find_sum(node.left))
             if node.right:
-                right_sum = find_sum(node.right)
+                right_sum = max(0,find_sum(node.right))
             
-            result = max(result,max(node.val , max(max(node.val+right_sum, node.val+left_sum), node.val+left_sum+right_sum)))
+            result = max(result, node.val+left_sum+right_sum)
             
-            return max(node.val, max(node.val+left_sum, node.val+right_sum))
+            return max(node.val+left_sum, node.val+right_sum)
         
         find_sum(root)
         return result
