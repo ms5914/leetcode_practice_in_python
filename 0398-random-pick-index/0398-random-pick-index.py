@@ -13,8 +13,8 @@ class Solution:
         
         
         
-        #Approach 2: Reservoir sampling : See discuss for more explaination
-# https://www.youtube.com/watch?v=A1iwzSew5QY&pp=ygUScmVzZXJ2b2lyIHNhbXBsaW5n
+# #         Approach 2: Reservoir sampling : See discuss for more explaination
+# # https://www.youtube.com/watch?v=A1iwzSew5QY&pp=ygUScmVzZXJ2b2lyIHNhbXBsaW5n
 
 
 #         count = 0
