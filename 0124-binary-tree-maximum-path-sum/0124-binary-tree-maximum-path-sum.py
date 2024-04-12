@@ -22,7 +22,7 @@ class Solution:
             
             result = max(result, node.val+left_sum+right_sum)
             
-            return max(node.val+left_sum, node.val+right_sum)
+            return node.val+max(left_sum,right_sum)
         
         find_sum(root)
         return result
