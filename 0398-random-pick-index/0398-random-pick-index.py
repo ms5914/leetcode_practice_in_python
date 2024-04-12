@@ -23,7 +23,7 @@ class Solution:
 #             if target == num:
 #                 count+=1
 #                 r_num = random.randint(0, count-1)
-#                 if r_num == 0:
+#                 if r_num == count-1:
 #                     result = index
                 
 #         return result
