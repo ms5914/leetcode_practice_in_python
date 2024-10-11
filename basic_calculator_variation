@@ -1,0 +1,69 @@
+
+#Variaiton of basic calculator (letters instead of numbers)
+
+#basic calculator using stack
+
+#use stack for storing 
+
+#previous sign before bracket and interim result before bracket
+
+#These are used after encountering it's closing conunterpart bracket.
+
+#Stack approach
+import collections
+def simpify_expr(expr):
+	st = []
+	prev_sign = '+'
+	res = ''
+	for ch in expr:
+		if ch.isalpha():
+			res = res+prev_sign+ch
+		elif ch in ('+','-'):
+			prev_sign = ch
+		elif ch == '(':
+			st.append(res)
+			res = ''
+			st.append(prev_sign)
+			prev_sign = '+'
+		else:
+			sign = st.pop()
+			if sign == '-':
+				res = res.replace('+', '#')
+				res = res.replace('-','+')
+				res = res.replace('#','-')
+			res = st.pop()+res
+
+	output = []
+	mp = collections.defaultdict(int)
+	i=0
+	while i<len(res):
+		if res[i] == '+':
+			mp[res[i+1]]+=1
+		else:
+			mp[res[i+1]]-=1
+		i=i+2
+
+	for key, value in mp.items():
+		if value !=0:
+			if value>0:
+				output.append('+')
+			if abs(value)!=1:
+				output.append(str(value)+key)
+			else:
+				output.append(key)
+			
+	return "".join(output)
+			
+print(simpify_expr('a+e-b-(a+c-(d+b))-e'))
+
+
+	
+	
+			
+				
+			
+			
+			
+			
+		
+	
