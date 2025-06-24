@@ -12,10 +12,11 @@ class Solution(object):
                     balance -= 1
                 sb.append(c)
             return "".join(sb)
-                # Note that s[::-1] gets the reverse of s.
+        # Note that s[::-1] gets the reverse of s.
         s = delete_invalid_closing(s[::-1], ")", "(")
         s = delete_invalid_closing(s[::-1], "(", ")")
         
         return s
+
         
         
