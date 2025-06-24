@@ -17,6 +17,3 @@ class Solution(object):
         s = delete_invalid_closing(s[::-1], "(", ")")
         
         return s
-
-        
-        
